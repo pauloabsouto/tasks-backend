@@ -66,6 +66,14 @@ pipeline {
                 sh 'docker-compose up -d'
             }
         }
+        stage ('Healthcheck') {
+            steps {
+                sleep(5)
+                dir('e2e-tests'){
+                    sh 'mvn verify -Dskipe.surefire.tests'
+                }
+            }
+        }
 
     }
 }
