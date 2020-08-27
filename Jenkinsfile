@@ -52,6 +52,14 @@ pipeline {
                 
             }
         }
+        stage ('e2e Tests') {
+            steps {
+                dir('e2e-tests'){
+                    git credentialsId: 'github_login', url: 'https://github.com/pauloabsouto/e2e-tests'
+                    sh 'mvn test'
+                }
+            }
+        }
 
     }
 }
