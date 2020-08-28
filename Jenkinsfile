@@ -76,8 +76,8 @@ pipeline {
         }
     }
     post {
-            always {
-                junit allowEmptyResults: true, testResults: 'target/surefire-reports/*xml', 'api-tests/target/surefire-reports/*.xml', 'e2e-tests/target/surefire-reports/*.xml', 'e2e-tests/target/failsafe-reports/*.xml'  
-            }
+        always {
+            junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml', 'api-tests/target/surefire-reports/*.xml', 'e2e-tests/target/surefire-reports/*.xml', 'e2e-tests/target/failsafe-reports/*.xml'  
+        }
     }
 }
